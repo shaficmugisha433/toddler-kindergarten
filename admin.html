@@ -3,47 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Dashboard</title>
+  <title>Admin | Toddler Town Kindergarten</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f9ff;
-      color: #1d2a36;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-    }
-    .card {
-      max-width: 640px;
-      background: white;
-      padding: 28px;
-      border-radius: 16px;
-      border: 1px solid #e7edf3;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.05);
-    }
-    h1 { margin-top: 0; }
-    p { line-height: 1.7; color: #53677a; }
-    a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: #4ecdc4;
-      color: #0f2d2b;
-      text-decoration: none;
-      font-weight: 700;
-    }
+    :root { --primary:#ff6b6b; --secondary:#4ecdc4; --dark:#17324d; --text:#243447; --muted:#5c6780; --light:#f7f9fc; --line:#e7edf5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background: linear-gradient(135deg, #fdf7f7, #f1faf9); min-height:100vh; display:grid; place-items:center; }
+    .card { width:min(640px, 92vw); background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px; box-shadow:0 20px 50px rgba(0,0,0,.06); }
+    .badge { display:inline-block; background: rgba(78,205,196,.12); color:#0d7a75; border-radius:999px; padding:8px 12px; font-size:12px; font-weight:700; }
+    h1 { margin: 16px 0 10px; color: var(--dark); }
+    p { color: var(--muted); line-height:1.7; }
+    .btn { display:inline-block; padding:12px 16px; border-radius:999px; font-weight:700; text-decoration:none; }
+    .btn-primary { background: var(--primary); color:#fff; }
+    .btn-secondary { background: #edf7f7; color: var(--dark); }
   </style>
 </head>
 <body>
   <div class="card">
+    <div class="badge">Static demo</div>
     <h1>Admin dashboard</h1>
-    <p>
-      The full dashboard is part of the PHP application and cannot run directly on GitHub Pages.
-      Run the project locally with PHP to access the admin experience.
-    </p>
-    <a href="./index.html">Back to project overview</a>
+    <p>This GitHub Pages version is a static preview. The full admin experience in the original project requires a PHP + database setup and cannot run directly on GitHub Pages.</p>
+    <p>For the full application, run the project locally with PHP or host it on a PHP-capable server.</p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;">
+      <a class="btn btn-primary" href="index.html">Back to home</a>
+      <a class="btn btn-secondary" href="https://github.com/shaficmugisha433/toddler-kindergarten">Repository</a>
+    </div>
   </div>
 </body>
 </html>

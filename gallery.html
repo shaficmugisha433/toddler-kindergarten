@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Toddler Town Kindergarten</title>
+  <style>
+    :root { --primary:#ff6b6b; --secondary:#4ecdc4; --dark:#17324d; --text:#243447; --muted:#5c6780; --light:#f7f9fc; --line:#e7edf5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, Helvetica, sans-serif; color: var(--text); background:#fff; line-height:1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    .topbar { background: var(--dark); color:#fff; padding:10px 0; }
+    .topbar-inner { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .nav { background: rgba(255,255,255,.96); position: sticky; top:0; border-bottom:1px solid var(--line); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:16px 0; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; color:var(--dark); }
+    .brand-mark { width:42px; height:42px; display:grid; place-items:center; border-radius:12px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color:#fff; }
+    .nav-links { display:flex; gap:18px; flex-wrap: wrap; }
+    .nav-links a { color: var(--dark); font-weight: 600; }
+    .page-header { background: linear-gradient(135deg, rgba(255,107,107,.08), rgba(78,205,196,.10)); padding: 62px 0; }
+    .page-header h1 { margin:0; color: var(--dark); font-size: clamp(2.2rem, 4vw, 3.3rem); }
+    .gallery { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; padding:60px 0; }
+    .gallery img { width:100%; height:260px; object-fit:cover; border-radius:18px; border:1px solid var(--line); }
+    @media (max-width: 840px) { .gallery { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>📍 Kampala Along Hoima Road</div>
+      <div>📞 +256 742 384 700</div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">🏫</span>
+        <span>Toddler Town <small>Kindergarten</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="admission.html">Admissions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" class="btn btn-primary">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container"><h1>Gallery</h1></div>
+  </header>
+
+  <main class="container gallery">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80" alt="Outdoor learning">
+    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80" alt="Classroom activity">
+    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80" alt="Teacher with child">
+    <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Children learning together">
+    <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=900&q=80" alt="Creative classroom">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80" alt="School playtime">
+  </main>
+</body>
+</html>

@@ -3,110 +3,346 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Toddler Kindergarten</title>
+  <title>Toddler Town Kindergarten</title>
+  <meta name="description" content="Toddler Town Kindergarten — a modern, static landing page for a preschool and kindergarten school.">
   <style>
     :root {
-      --bg: #f7f9fc;
-      --panel: #ffffff;
       --primary: #ff6b6b;
       --secondary: #4ecdc4;
-      --text: #1d2a36;
-      --muted: #5d6b7a;
-      --border: #e5eaf0;
+      --dark: #17324d;
+      --text: #243447;
+      --muted: #5c6780;
+      --light: #f6f9fc;
+      --line: #e7edf5;
+      --gold: #ffd166;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #fff5f5, #f1fbfb);
       color: var(--text);
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
+      background: #fff;
+      line-height: 1.6;
     }
-    .card {
-      max-width: 760px;
-      width: min(92vw, 760px);
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(29, 42, 54, 0.08);
-      padding: 32px 28px;
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1120px, 92vw); margin: 0 auto; }
+    .topbar {
+      background: var(--dark); color: #fff; padding: 10px 0; font-size: 14px;
     }
-    .badge {
-      display: inline-block;
-      background: rgba(78, 205, 196, 0.12);
-      color: #0e7a76;
-      border: 1px solid rgba(78, 205, 196, 0.2);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-weight: 700;
+    .topbar-inner {
+      display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .top-links, .nav-links {
+      display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+    }
+    .top-links a, .nav-links a { color: #fff; opacity: 0.95; }
+    .nav {
+      background: rgba(255,255,255,0.95); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 18px;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px; font-weight: 700; color: var(--dark);
+    }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-size: 20px;
+    }
+    .brand small { display: block; color: var(--muted); font-weight: 500; }
+    .nav-links a {
+      color: var(--dark); font-weight: 600; padding: 8px 0; border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover { border-color: var(--primary); }
+    .btn {
+      display: inline-block; padding: 12px 18px; border-radius: 999px; font-weight: 700; border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-secondary { background: var(--secondary); color: #fff; }
+    .btn-outline { border-color: var(--primary); color: var(--primary); background: #fff; }
+    .hero {
+      background: linear-gradient(135deg, rgba(255,107,107,0.08), rgba(78,205,196,0.06));
+      padding: 74px 0 58px;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 44px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; background: rgba(255,209,102,0.2); color: #856100; border-radius: 999px; padding: 8px 12px; font-weight: 700; font-size: 13px;
     }
     h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin: 18px 0 12px;
+      font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1.1; margin: 18px 0 16px; color: var(--dark);
     }
-    p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 0 0 18px;
+    .highlight { color: var(--primary); }
+    .lead {
+      color: var(--muted); font-size: 1.08rem; max-width: 620px;
     }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 24px 0 30px; }
+    .stats {
+      display: flex; gap: 20px; flex-wrap: wrap;
     }
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-weight: 700;
-      transition: transform 0.15s ease;
+    .stat {
+      min-width: 120px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
     }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary {
-      background: var(--primary);
-      color: white;
+    .stat strong { font-size: 1.7rem; display: block; color: var(--dark); }
+    .hero-card {
+      background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: 0 30px 60px rgba(25,44,66,0.08);
     }
-    .btn-secondary {
-      background: #eef8f7;
-      color: var(--text);
-      border: 1px solid var(--border);
+    .hero-card img {
+      width: 100%; height: 320px; object-fit: cover; border-radius: 18px;
     }
-    ul {
-      margin: 14px 0 0;
-      padding-left: 20px;
-      color: var(--muted);
-      line-height: 1.9;
+    .section { padding: 75px 0; }
+    .section-header { text-align: center; margin-bottom: 36px; }
+    .section-header span {
+      display: inline-block; background: rgba(78,205,196,0.12); color: #0c7a74; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 700; margin-bottom: 14px;
+    }
+    h2 { font-size: clamp(2rem, 3vw, 2.8rem); color: var(--dark); margin: 0 0 10px; }
+    .section-header p { color: var(--muted); max-width: 680px; margin: 0 auto; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .card {
+      background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 26px 22px; box-shadow: 0 12px 28px rgba(29,42,54,0.04);
+    }
+    .card i { font-size: 2rem; color: var(--primary); display: inline-block; margin-bottom: 12px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.4rem; color: var(--dark); }
+    .card p, .card li { color: var(--muted); }
+    .card ul { margin: 12px 0 0; padding-left: 18px; }
+    .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items: center; }
+    .feature-list { display: grid; gap: 18px; }
+    .feature-item {
+      display: flex; gap: 16px; align-items: flex-start; padding: 16px; background: var(--light); border: 1px solid var(--line); border-radius: 18px;
+    }
+    .feature-item .icon {
+      width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(78,205,196,0.14); color: #0d7a75; font-size: 20px;
+    }
+    .feature-item h4 { margin: 0 0 6px; color: var(--dark); }
+    .feature-item p { margin: 0; color: var(--muted); }
+    .photo-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px;
+    }
+    .photo-grid img {
+      height: 220px; object-fit: cover; border-radius: 20px; border: 1px solid var(--line);
+    }
+    .testimonials { background: var(--light); }
+    .quote { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+    .quote p { color: var(--muted); }
+    .quote strong { display: block; margin-top: 14px; color: var(--dark); }
+    .cta {
+      background: linear-gradient(135deg, var(--primary), #f77b6d); color: #fff; padding: 50px 0; text-align: center;
+    }
+    .cta h2 { color: white; margin-bottom: 12px; }
+    .cta p { color: rgba(255,255,255,0.9); margin: 0 auto 22px; max-width: 700px; }
+    footer {
+      background: #12263b; color: rgba(255,255,255,0.85); padding: 34px 0;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 24px;
+    }
+    .mini-nav { display: grid; gap: 8px; }
+    @media (max-width: 900px) {
+      .hero-grid, .split, .cards, .footer-grid { grid-template-columns: 1fr; }
+      .nav-inner { flex-direction: column; align-items: flex-start; }
+      .nav-links { width: 100%; justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="badge">GitHub Pages</div>
-    <h1>Toddler Kindergarten</h1>
-    <p>
-      This project contains a PHP + MySQL school management system. GitHub Pages can only serve
-      static files, so this page is a landing page for the repository instead of running the app itself.
-    </p>
-    <p>
-      The full application requires a local PHP server and a database connection. To run it locally:
-    </p>
-    <ul>
-      <li>Open the repo in a PHP-enabled environment</li>
-      <li>Run: <code>php -S localhost:8000</code></li>
-      <li>Visit: <code>http://localhost:8000</code></li>
-      <li>For the admin dashboard, use the app pages from the project itself</li>
-    </ul>
-    <div class="actions">
-      <a class="btn btn-primary" href="https://github.com/shaficmugisha433/toddler-kindergarten">Open repository</a>
-      <a class="btn btn-secondary" href="https://github.com/shaficmugisha433/toddler-kindergarten/blob/main/README.md">View setup guide</a>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <div>📍 Kampala Along Hoima Road</div>
+      <div class="top-links">
+        <a href="tel:+256742384700">📞 +256 742 384 700</a>
+        <a href="mailto:info@toddertown.edu">✉️ info@toddertown.edu</a>
+      </div>
     </div>
+  </div>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">🏫</span>
+        <span>
+          Toddler Town
+          <small>Kindergarten</small>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="curriculum.html">Curriculum</a>
+        <a href="admission.html">Admissions</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="admin.html" class="btn btn-outline">Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-badge">Enrolling Now for 2026</span>
+        <h1>Nurturing Curiosity,<br>Building Kindness,<br><span class="highlight">Growing Together</span></h1>
+        <p class="lead">Award-winning early childhood education for children ages 1–6. Our play-based, child-centered approach helps each learner feel safe, inspired, and ready for school.</p>
+        <div class="hero-actions">
+          <a href="admission.html" class="btn btn-primary">Book a Tour</a>
+          <a href="curriculum.html" class="btn btn-secondary">Explore Programs</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>15+</strong><span>Years experience</span></div>
+          <div class="stat"><strong>500+</strong><span>Happy families</span></div>
+          <div class="stat"><strong>12</strong><span>Expert teachers</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Children learning together">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span>Our programs</span>
+          <h2>Age-appropriate learning</h2>
+          <p>Every child enjoys a tailored program for their developmental stage and learning style.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <i>👶</i>
+            <h3>Toddlers</h3>
+            <p>Gentle, sensory-rich care that supports early language, movement, and social confidence.</p>
+            <ul>
+              <li>Motor skill development</li>
+              <li>Early communication</li>
+              <li>Play-based routines</li>
+            </ul>
+          </article>
+          <article class="card">
+            <i>🎨</i>
+            <h3>Preschool</h3>
+            <p>Exploration, creativity, and early literacy develop strong foundations for future learning.</p>
+            <ul>
+              <li>Literacy and numeracy</li>
+              <li>Creative arts</li>
+              <li>Social-emotional growth</li>
+            </ul>
+          </article>
+          <article class="card">
+            <i>📚</i>
+            <h3>Kindergarten</h3>
+            <p>Structured activities help children build independence, confidence, and school readiness.</p>
+            <ul>
+              <li>Reading and writing</li>
+              <li>Critical thinking</li>
+              <li>School readiness</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8fafc;">
+      <div class="container split">
+        <div>
+          <div class="section-header" style="text-align:left; margin-bottom:24px;">
+            <span>Why choose us</span>
+            <h2>A place where children thrive</h2>
+          </div>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="icon">🎓</div>
+              <div>
+                <h4>Certified teachers</h4>
+                <p>Our educators are passionate, trained, and committed to nurturing each child’s growth.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="icon">🛡️</div>
+              <div>
+                <h4>Safe environment</h4>
+                <p>We maintain secure routines, health standards, and a welcoming, supervised setting.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="icon">🌿</div>
+              <div>
+                <h4>Nature-based learning</h4>
+                <p>Outdoor play and sensory experiences help children feel confident, active, and curious.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="photo-grid">
+          <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Classroom scene">
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Outdoor play activity">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Teacher assisting child">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=80" alt="Happy school children">
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-header">
+          <span>Parent testimonials</span>
+          <h2>What families say</h2>
+        </div>
+        <div class="cards">
+          <div class="quote">
+            <p>“The nurturing environment and caring teachers made all the difference. My daughter is confident and excited to learn every day.”</p>
+            <strong>Sarah L.</strong>
+          </div>
+          <div class="quote">
+            <p>“Communication is excellent and the curriculum is engaging. The school feels warm, structured, and full of care.”</p>
+            <strong>James T.</strong>
+          </div>
+          <div class="quote">
+            <p>“Our son is thriving. The teachers genuinely understand early childhood development and meet each child where they are.”</p>
+            <strong>Mei Chen</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to join our family?</h2>
+        <p>Schedule a tour today and see why Toddler Town is the perfect place for your child to grow, play, and learn.</p>
+        <div class="hero-actions" style="justify-content:center; margin-bottom:0;">
+          <a href="admission.html" class="btn" style="background:#fff; color:var(--primary);">Schedule a Tour</a>
+          <a href="contact.html" class="btn" style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35); color:#fff;">Contact Us</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3 style="margin-top:0; color:#fff;">Toddler Town Kindergarten</h3>
+        <p>Early learning built on play, safety, kindness, and strong family partnerships.</p>
+      </div>
+      <div>
+        <h4 style="margin-top:0; color:#fff;">Quick links</h4>
+        <div class="mini-nav">
+          <a href="about.html">About</a>
+          <a href="curriculum.html">Curriculum</a>
+          <a href="admission.html">Admissions</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="margin-top:0; color:#fff;">Contact</h4>
+        <div class="mini-nav">
+          <a href="tel:+256742384700">+256 742 384 700</a>
+          <a href="mailto:info@toddertown.edu">info@toddertown.edu</a>
+          <span>Kampala Along Hoima Road</span>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
